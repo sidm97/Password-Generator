@@ -90,7 +90,19 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-
+  var length = prompt("how many characters");
+  if (length <8||length>128) {
+    alert("length must be 8-128");
+    return;
+  } else if (isNaN(length)){
+    alert("enter a valid number");
+    return;
+  }
+  var number = confirm("do you want numbers");
+  var upper = confirm("do you want uppercases");
+  var lower = confirm("do you want lowercases");
+  var special = confirm("do you want special characters");
+  
 }
 
 // Function for getting a random element from an array
