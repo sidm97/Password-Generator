@@ -108,6 +108,10 @@ var selectedSpec = []
 var selectedUpper = []
 var selectedLower = []
 
+var completedPassword = []
+
+passwordText = "";
+
 // Function to get and record user choices on password specifics
 function getPasswordOptions() {
   function getPasswordOptions() {
