@@ -264,8 +264,19 @@ function createSelectedarrays() {
           completedPassword = completedPassword.concat(selectedNum)
   }
   }
-  
 
+// Function to shuffle the array that contains the final password characters
+  function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
+    while (currentIndex > 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+    return array;
+  }
+  
 // Function for getting a random element from an array
 function getRandom(arr) {
 
