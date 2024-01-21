@@ -114,7 +114,6 @@ passwordText = "";
 
 // Function to get and record user choices on password specifics
 function getPasswordOptions() {
-  function getPasswordOptions() {
     passwordLength = prompt("how many characters");
     if (passwordLength < 8 || passwordLength > 128) {
       alert("length must be 8-128");
@@ -136,7 +135,7 @@ function getPasswordOptions() {
       }
     }
   }
-}
+
 
 // 2 Math functions to decide how many characters of each type based on which types of characters were selected. E.g if 20 characters are required, of which there need to be lower and upper case characters, a random number of lower and upper case characters are selected that add up to 20
 function randomNum(min, max) {
@@ -147,7 +146,6 @@ function randomNum(min, max) {
 
 function decideNumberofCharacters() {
   numberOfselectedOptions = Object.values(passwordOptions).filter(Boolean).length;
-  console.log(numberOfselectedOptions);
   if (numberOfselectedOptions === 4) {
     lowerNumberofCharacters = randomNum(1, passwordLength - 3);
     upperNumberofCharacters = randomNum(1, passwordLength - lowerNumberofCharacters - 2);
@@ -287,19 +285,20 @@ function convertTotext() {
 // Final generation algorithm
 function generateFinalpassword() {
   getPasswordOptions();
-  console.log("length" + passwordLength);
-  console.log(passwordOptions);
+  console.log("Chosen password length is : " + passwordLength);
+  console.log("Chosen password options are : "  + passwordOptions);
   decideNumberofCharacters()
-  console.log(lowerNumberofCharacters);
-  console.log(upperNumberofCharacters);
-  console.log(specNumberofCharacters);
-  console.log(numNumberofCharacters);
+  console.log("Number of chosen character types is : "  + numberOfselectedOptions);
+  console.log("Number of lowercase characters in final password will be : " + lowerNumberofCharacters);
+  console.log("Number of uppercase characters in final password will be : " + upperNumberofCharacters);
+  console.log("Number of special characters in final password will be : " + specNumberofCharacters);
+  console.log("Number of numeric characters in final password will be : " + numNumberofCharacters);
   createSelectedarrays()
-  console.log(completedPassword);
+  console.log("Final password will contain the following characters : " + completedPassword);
   shuffle(completedPassword);
-  console.log(completedPassword);
+  console.log("Final password is : " + completedPassword);
   convertTotext()
-  console.log(passwordText);
+  console.log("Final password in text is : " + passwordText);
   return passwordText;
 }
 
