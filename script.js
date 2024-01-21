@@ -103,6 +103,11 @@ var upperNumberofCharacters = 0;
 var specNumberofCharacters = 0;
 var numNumberofCharacters = 0;
 
+var selectedNum = []
+var selectedSpec = []
+var selectedUpper = []
+var selectedLower = []
+
 function getPasswordOptions() {
   function getPasswordOptions() {
     passwordLength = prompt("how many characters");
