@@ -108,6 +108,7 @@ var selectedSpec = []
 var selectedUpper = []
 var selectedLower = []
 
+// Function to get and record user choices on password specifics
 function getPasswordOptions() {
   function getPasswordOptions() {
     passwordLength = prompt("how many characters");
@@ -133,7 +134,7 @@ function getPasswordOptions() {
   }
 }
 
-// Math functions to decide how many characters of each type based on which types of characters were selected. E.g if 20 characters are required, of which there need to be lower and upper case characters, a random number of lower and upper case characters are selected that add up to 20
+// 2 Math functions to decide how many characters of each type based on which types of characters were selected. E.g if 20 characters are required, of which there need to be lower and upper case characters, a random number of lower and upper case characters are selected that add up to 20
 function randomNum(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -228,11 +229,38 @@ else if (numberOfselectedOptions === 1) {
 }
 }
 
-// Function to actually select the correct number of characters of each type. Here, new arrays are created by randomly selecting the allotted number of characters from the pre-existing arrays. These arrays are added to 1 final array that contains arranged characters that need to be randomised one more time
+// 2 Functions to actually select the correct number of characters of each type. Here, new arrays are created by randomly selecting the allotted number of characters from the pre-existing arrays. These arrays are added to 1 final array that contains arranged characters that need to be randomised one more time
 function getRandom(arr) {
   return arr[Math.floor(Math.random()*arr.length)]
 }
 
+function createSelectedarrays() {
+  if (passwordOptions.lower) {
+      for (let index = 0; index < lowerNumberofCharacters; index++) {
+          selectedLower.push(getRandom(lowerCasedCharacters));
+      }
+      completedPassword = completedPassword.concat(selectedLower)
+  }
+  if (passwordOptions.upper) {
+      for (let index = 0; index < upperNumberofCharacters; index++) {
+          selectedUpper.push(getRandom(upperCasedCharacters));
+         }
+      completedPassword = completedPassword.concat(selectedUpper)
+  }
+  if (passwordOptions.special) {
+      for (let index = 0; index < specNumberofCharacters; index++) {
+          selectedSpec.push(getRandom(specialCharacters));
+      }
+      completedPassword = completedPassword.concat(selectedSpec)
+  }
+  if (passwordOptions.number) {
+      for (let index = 0; index < numNumberofCharacters; index++) {
+          selectedNum.push(getRandom(numericCharacters));       
+      }
+          completedPassword = completedPassword.concat(selectedNum)
+  }
+  }
+  
 
 // Function for getting a random element from an array
 function getRandom(arr) {
