@@ -7,7 +7,10 @@ This repository contains a password generator. Its a simple application that tak
 ## Usage
 This site has 2 functional parts. It is useful to open the console log on the page to see my scripts in action. After the button is pressed and the user selects their password criteria, the page generates the password but also displays key parts of the script process in the log.
 
-Link to site: https://sidm97.github.io/Console-Finances/
+![Screenshot on additional information in console log](Howto.png)
+
+
+Link to site: 
 
 ## Credits
 Credit goes to the Skills Bootcamp that taught me how to use Javascript functions (the RPS game also came in handy for my random number generator!). I'm also grateful to Rajeswari Marimuthu and her GitHub page on her own password generator as it was a great entry point for my own. In addition, Mozilla's MDN docs and StackOverflow were both very useful in answering my questions along the way (on random shuffling, query selectors, and array to text conversion).
