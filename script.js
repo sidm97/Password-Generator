@@ -118,9 +118,11 @@ function getPasswordOptions() {
     if (passwordLength < 8 || passwordLength > 128) {
       alert("length must be 8-128");
       passwordLength = 0;
+      return;
     } else if (isNaN(passwordLength)) {
       alert("enter a valid number");
       passwordLength = 0;
+      return;
     } else {
       passwordOptions.number = confirm("do you want numbers");
       passwordOptions.upper = confirm("do you want uppercases");
@@ -132,6 +134,8 @@ function getPasswordOptions() {
         passwordOptions.upper = false;
         passwordOptions.lower = false;
         passwordOptions.special = false;
+        passwordLength = 0;
+        return;
       }
     }
   }
@@ -286,7 +290,7 @@ function convertTotext() {
 function generateFinalpassword() {
   getPasswordOptions();
   console.log("Chosen password length is : " + passwordLength);
-  console.log("Chosen password options are : "  + passwordOptions);
+  console.log(passwordOptions);
   decideNumberofCharacters()
   console.log("Number of chosen character types is : "  + numberOfselectedOptions);
   console.log("Number of lowercase characters in final password will be : " + lowerNumberofCharacters);
