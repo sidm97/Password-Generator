@@ -97,6 +97,12 @@ var passwordOptions = {
     special: false,
 }
 
+var numberOfselectedOptions = 0;
+var lowerNumberofCharacters = 0;
+var upperNumberofCharacters = 0;
+var specNumberofCharacters = 0;
+var numNumberofCharacters = 0;
+
 function getPasswordOptions() {
   function getPasswordOptions() {
     passwordLength = prompt("how many characters");
