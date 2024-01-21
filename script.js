@@ -87,7 +87,7 @@ var upperCasedCharacters = [
   'Y',
   'Z'
 ];
- 
+
 // Defining variables
 var passwordLength = 0
 var passwordOptions = {
