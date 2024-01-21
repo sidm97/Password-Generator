@@ -284,27 +284,35 @@ function convertTotext() {
   }
   }
 
-
-// Function for getting a random element from an array
-function getRandom(arr) {
-
-}
-
-// Function to generate password with user input
-function generatePassword() {
-
+// Final generation algorithm
+function generateFinalpassword() {
+  getPasswordOptions();
+console.log("length" + passwordLength);
+console.log(passwordOptions);
+decideNumberofCharacters()
+console.log(lowerNumberofCharacters);
+console.log(upperNumberofCharacters);
+console.log(specNumberofCharacters);
+console.log(numNumberofCharacters);
+createSelectedarrays()
+console.log(completedPassword);
+shuffle(completedPassword);
+console.log(completedPassword);
+convertTotext()
+console.log(passwordText);
+return passwordText;
 }
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector('#password');
-
-  passwordText.value = password;
-}
-
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
+
+// Write password to the #password input
+function writePassword() {
+  var password = generateFinalpassword();
+  var passwordText = document.querySelector('#password');
+  passwordText.value = password;
+  document.querySelector('#generate').disabled = true;
+}
