@@ -228,6 +228,11 @@ else if (numberOfselectedOptions === 1) {
 }
 }
 
+// Function to actually select the correct number of characters of each type. Here, new arrays are created by randomly selecting the allotted number of characters from the pre-existing arrays. These arrays are added to 1 final array that contains arranged characters that need to be randomised one more time
+function getRandom(arr) {
+  return arr[Math.floor(Math.random()*arr.length)]
+}
+
 
 // Function for getting a random element from an array
 function getRandom(arr) {
