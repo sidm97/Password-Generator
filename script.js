@@ -114,22 +114,22 @@ passwordText = "";
 
 // Function to get and record user choices on password specifics
 function getPasswordOptions() {
-    passwordLength = prompt("how many characters");
+    passwordLength = prompt("How many characters do you want your password to be? Choose a number between 8 and 128");
     if (passwordLength < 8 || passwordLength > 128) {
-      alert("length must be 8-128");
+      alert("Your selected password length must be between 8 and 128. Please reload the page and try again");
       passwordLength = 0;
       return;
     } else if (isNaN(passwordLength)) {
-      alert("enter a valid number");
+      alert("You must enter a valid number between 8 and 128. Please reload the page and try again");
       passwordLength = 0;
       return;
     } else {
-      passwordOptions.number = confirm("do you want numbers");
-      passwordOptions.upper = confirm("do you want uppercases");
-      passwordOptions.lower = confirm("do you want lowercases");
-      passwordOptions.special = confirm("do you want special characters");
+      passwordOptions.number = confirm("Do you want you password to include numbers? Hit cancel if No");
+      passwordOptions.upper = confirm("Do you want you password to include uppercase characters? Hit cancel if No");
+      passwordOptions.lower = confirm("Do you want you password to include lowercase characters? Hit cancel if No");
+      passwordOptions.special = confirm("Do you want you password to include special characters? Hit cancel if No");
       if (passwordOptions.number === false && passwordOptions.upper === false && passwordOptions.lower === false && passwordOptions.special === false) {
-        alert("you must choose at least 1 character type for your password")
+        alert("Your password must include at least 1 character type. Please reload the page to try again")
         passwordOptions.number = false;
         passwordOptions.upper = false;
         passwordOptions.lower = false;
