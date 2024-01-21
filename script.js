@@ -128,6 +128,102 @@ function getPasswordOptions() {
   }
 }
 
+// Math functions to decide how many characters of each type based on which types of characters were selected. E.g if 20 characters are required, of which there need to be lower and upper case characters, a random number of lower and upper case characters are selected that add up to 20
+function randomNum(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function decideNumberofCharacters() {
+numberOfselectedOptions = Object.values(passwordOptions).filter(Boolean).length;
+console.log(numberOfselectedOptions);
+if (numberOfselectedOptions === 4) {
+  lowerNumberofCharacters = randomNum(1,passwordLength-3);
+  upperNumberofCharacters = randomNum(1,passwordLength-lowerNumberofCharacters-2);
+  specNumberofCharacters = randomNum(1,passwordLength-lowerNumberofCharacters-upperNumberofCharacters-1);
+  numNumberofCharacters = passwordLength-(lowerNumberofCharacters+upperNumberofCharacters+specNumberofCharacters)
+  return
+}
+else if (numberOfselectedOptions === 3) {
+  if (passwordOptions.lower === true && passwordOptions.upper === true && passwordOptions.special === true) {
+    lowerNumberofCharacters = randomNum(1,passwordLength-2);
+    upperNumberofCharacters = randomNum(1,passwordLength-lowerNumberofCharacters-1);
+    specNumberofCharacters = passwordLength-(lowerNumberofCharacters+upperNumberofCharacters)
+    return
+  }
+  if ( passwordOptions.lower === true && passwordOptions.upper === true && passwordOptions.number === true) {
+    lowerNumberofCharacters = randomNum(1,passwordLength-2);
+    upperNumberofCharacters = randomNum(1,passwordLength-lowerNumberofCharacters-1);
+    numNumberofCharacters = passwordLength-(lowerNumberofCharacters+upperNumberofCharacters)
+    return
+  }
+  if ( passwordOptions.lower === true && passwordOptions.special === true && passwordOptions.number === true) {
+    lowerNumberofCharacters = randomNum(1,passwordLength-2);
+    specNumberofCharacters = randomNum(1,passwordLength-lowerNumberofCharacters-1);
+    numNumberofCharacters = passwordLength-(lowerNumberofCharacters+specNumberofCharacters)
+    return
+  }
+  if ( passwordOptions.number === true && passwordOptions.upper === true && passwordOptions.special === true) {
+    upperNumberofCharacters = randomNum(1,passwordLength-2);
+    specNumberofCharacters = randomNum(1,passwordLength-upperNumberofCharacters-1);
+    numNumberofCharacters = passwordLength-(upperNumberofCharacters+specNumberofCharacters)
+    return
+  }
+}
+else if (numberOfselectedOptions === 2) {
+  if (passwordOptions.lower === true && passwordOptions.upper === true) {
+    lowerNumberofCharacters = randomNum(1,passwordLength-1);
+    upperNumberofCharacters = passwordLength-lowerNumberofCharacters
+    return
+  }
+  if (passwordOptions.lower === true && passwordOptions.special === true) {
+    lowerNumberofCharacters = randomNum(1,passwordLength-1);
+    specNumberofCharacters = passwordLength-lowerNumberofCharacters
+    return
+  }
+  if (passwordOptions.lower === true && passwordOptions.number === true) {
+    lowerNumberofCharacters = randomNum(1,passwordLength-1);
+    numNumberofCharacters = passwordLength-lowerNumberofCharacters
+    return
+  }
+  if (passwordOptions.special === true && passwordOptions.upper === true) {
+    specNumberofCharacters = randomNum(1,passwordLength-1);
+    upperNumberofCharacters = passwordLength-specNumberofCharacters
+    return
+  }
+  if (passwordOptions.number === true && passwordOptions.upper === true) {
+    numNumberofCharacters = randomNum(1,passwordLength-1);
+    upperNumberofCharacters = passwordLength-numNumberofCharacters
+    return
+  }
+  if (passwordOptions.special === true && passwordOptions.number === true) {
+    specNumberofCharacters = randomNum(1,passwordLength-1);
+    numNumberofCharacters = passwordLength-specNumberofCharacters
+    return
+  }
+}
+else if (numberOfselectedOptions === 1) {
+  if (passwordOptions.lower === true) {
+    lowerNumberofCharacters = randomNum(1,passwordLength);
+    return
+  }
+  else if (passwordOptions.upper === true) {
+    upperNumberofCharacters = randomNum(1,passwordLength);
+    return
+  }
+  else if (passwordOptions.special === true) {
+    specNumberofCharacters = randomNum(1,passwordLength);
+    return
+  }
+  else if (passwordOptions.number === true) {
+    numNumberofCharacters = randomNum(1,passwordLength);
+    return
+  }
+}
+}
+
+
 // Function for getting a random element from an array
 function getRandom(arr) {
 
