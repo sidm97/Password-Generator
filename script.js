@@ -98,23 +98,29 @@ var passwordOptions = {
 }
 
 function getPasswordOptions() {
-  passwordOptions.length = prompt("how many characters");
-  if (passwordOptions.length <8||passwordOptions.length>128) {
-    alert("length must be 8-128");
-  } else if (isNaN(passwordOptions.length)){
-    alert("enter a valid number");
-  } else {
-  passwordOptions.number = confirm("do you want numbers");
-  passwordOptions.upper = confirm("do you want uppercases");
-  passwordOptions.lower = confirm("do you want lowercases");
-  passwordOptions.special = confirm("do you want special characters");
-    if(passwordOptions.number===false && passwordOptions.upper===false && passwordOptions.lower ===false && passwordOptions.special ===false){
-      alert("you must choose at least 1 character type for your password")
+  function getPasswordOptions() {
+    passwordLength = prompt("how many characters");
+    if (passwordLength <8||passwordLength>128) {
+      alert("length must be 8-128");
+      passwordLength = 0;
+    } else if (isNaN(passwordLength)){
+      alert("enter a valid number");
+      passwordLength = 0;
     } else {
+    passwordOptions.number = confirm("do you want numbers");
+    passwordOptions.upper = confirm("do you want uppercases");
+    passwordOptions.lower = confirm("do you want lowercases");
+    passwordOptions.special = confirm("do you want special characters");
+      if(passwordOptions.number===false && passwordOptions.upper===false && passwordOptions.lower ===false && passwordOptions.special ===false){
+        alert("you must choose at least 1 character type for your password")
+        passwordOptions.number = false;
+        passwordOptions.upper = false;
+        passwordOptions.lower = false;
+        passwordOptions.special = false;
+      }
     }
   }
 }
-
 
 // Function for getting a random element from an array
 function getRandom(arr) {
