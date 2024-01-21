@@ -276,7 +276,15 @@ function createSelectedarrays() {
     }
     return array;
   }
-  
+
+// Function to change the completed password from an array to text format, ready to be displayed in HTML
+function convertTotext() {
+  for (let i = 0; i < completedPassword.length; i++) {
+    passwordText+= completedPassword[i]
+  }
+  }
+
+
 // Function for getting a random element from an array
 function getRandom(arr) {
 
